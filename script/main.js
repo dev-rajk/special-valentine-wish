@@ -303,3 +303,50 @@ const resolveFetch = () => {
 };
 
 resolveFetch().then(animationTimeline());
+// Restart Animation on click
+const replyBtn = document.getElementById("replay");
+replyBtn.addEventListener("click", () => {
+  tl.restart();
+  toggleBackgroundMusic(); // Add this line to play/pause the audio when replaying
+});
+};
+
+const toggleBackgroundMusic = () => {
+  const audio = document.getElementById("backgroundMusic");
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  }
+};
+
+// Function to create and append the audio element
+const createBackgroundMusic = () => {
+  const audio = document.createElement("audio");
+  audio.id = "backgroundMusic";
+  audio.autoplay = true;
+  audio.loop = true;
+
+  const source = document.createElement("source");
+  source.src = "img/Her_pt2.mp3";
+  source.type = "audio/mp3";
+
+  audio.appendChild(source);
+
+  document.body.appendChild(audio);
+};
+
+// Import the data to customize and insert them into the page
+const fetchData = () => {
+  // ... (Your existing fetch data code)
+};
+
+// Run fetch, create audio element, animation, and play background music in sequence
+const initializePage = async () => {
+  await resolveFetch();
+  createBackgroundMusic();
+  animationTimeline();
+  toggleBackgroundMusic(); // Add this line to play the audio on page load
+};
+
+initializePage();
