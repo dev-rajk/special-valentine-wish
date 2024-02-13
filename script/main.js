@@ -329,7 +329,7 @@ const createBackgroundMusic = () => {
 
   const source = document.createElement("source");
   source.src = "img/Her_pt2.mp3";
-  source.type = "audio/mp3";
+  source.type = "mp3";
 
   audio.appendChild(source);
 
