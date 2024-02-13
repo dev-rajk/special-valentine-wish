@@ -326,6 +326,8 @@ const createBackgroundMusic = () => {
   audio.id = "backgroundMusic";
   audio.autoplay = true;
   audio.loop = true;
+  console.log("Creating audio element");
+    ;
 
   const source = document.createElement("source");
   source.src = "img/Her_pt2.mp3";
